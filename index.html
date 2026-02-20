@@ -1,971 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WB Segurança Eletrônica | Proteção Profissional em Brasília</title>
-    <meta name="description" content="Segurança eletrônica em Brasília. CFTV, alarmes, cerca elétrica, controle de acesso. Revenda autorizada Intelbras e Hikvision.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --wb-green: #3d5c00;
-            --wb-green-dark: #2a4000;
-            --wb-green-light: #5a7a1a;
-            --wb-accent: #e6a817;
-            --wb-accent-hover: #d49516;
-            --wb-dark: #1a1a1a;
-            --wb-gray: #4a4a4a;
-            --wb-light: #f5f5f0;
-            --wb-white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nossa História - Contador de Amor</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background: var(--wb-light);
-            color: var(--wb-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        /* Loading Screen */
-        .loader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--wb-green-dark);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-        .loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-content { text-align: center; }
-        .loader-logo {
-            width: 80px; height: 80px;
-            border: 4px solid rgba(255,255,255,0.1);
-            border-top-color: var(--wb-accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loader p { color: var(--wb-white); font-family: 'Montserrat', sans-serif; letter-spacing: 2px; }
+body{
+font-family:'Lato',sans-serif;
+background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+overflow:hidden;
+}
 
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            transition: var(--transition);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
-        
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
+.container{
+text-align:center;
+z-index:10;
+}
 
-        .logo {
-            display: flex; align-items: center; gap: 0.75rem;
-            text-decoration: none;
-        }
-        .logo-icon {
-            width: 45px; height: 45px;
-            background: var(--wb-green);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--wb-white); font-size: 1.5rem;
-            transition: var(--transition);
-        }
-        .logo:hover .logo-icon { background: var(--wb-accent); transform: rotate(10deg); }
-        
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800; font-size: 1.25rem;
-            color: var(--wb-green-dark); line-height: 1.2;
-        }
-        .logo-text span {
-            display: block; font-size: 0.7rem; font-weight: 500;
-            color: var(--wb-gray); letter-spacing: 1px;
-        }
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:30px;
+padding:40px;
+width:95%;
+max-width:700px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
 
-        .nav-links {
-            display: flex; gap: 2.5rem; list-style: none;
-        }
-        .nav-links a {
-            color: var(--wb-gray); text-decoration: none;
-            font-weight: 600; font-size: 0.9rem;
-            text-transform: uppercase; letter-spacing: 1px;
-            position: relative; padding: 0.5rem 0;
-            transition: var(--transition);
-        }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: 0; left: 0;
-            width: 0; height: 2px; background: var(--wb-accent);
-            transition: var(--transition);
-        }
-        .nav-links a:hover { color: var(--wb-green); }
-        .nav-links a:hover::after { width: 100%; }
+.title{
+font-family:'Playfair Display',serif;
+font-size:2.5rem;
+margin-bottom:10px;
+background:linear-gradient(135deg,#f093fb,#f5576c);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-        .nav-cta {
-            background: var(--wb-accent); color: var(--wb-white) !important;
-            padding: 0.75rem 1.5rem !important; border-radius: 50px;
-            transition: var(--transition);
-        }
-        .nav-cta::after { display: none !important; }
-        .nav-cta:hover {
-            background: var(--wb-accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(230, 168, 23, 0.4);
-        }
+.subtitle{
+opacity:0.7;
+margin-bottom:30px;
+}
 
-        .mobile-menu-btn {
-            display: none; background: none; border: none;
-            font-size: 1.5rem; color: var(--wb-green); cursor: pointer;
-        }
+.counter-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--wb-green-dark) 0%, var(--wb-green) 100%);
-            position: relative; display: flex; align-items: center;
-            overflow: hidden; padding-top: 80px;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
-            background-size: 80px 80px;
-            animation: float 25s infinite linear;
-        }
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-        }
+.time-box{
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:20px;
+}
 
-        .hero-content {
-            max-width: 1200px; margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 4rem; align-items: center;
-            position: relative; z-index: 1;
-        }
+.number{
+font-size:2.5rem;
+font-weight:bold;
+}
 
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem; border-radius: 50px;
-            color: var(--wb-accent); font-size: 0.85rem;
-            font-weight: 600; margin-bottom: 1.5rem;
-            border: 1px solid rgba(230, 168, 23, 0.3);
-            animation: fadeInDown 0.8s ease;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.label{
+font-size:0.8rem;
+opacity:0.7;
+letter-spacing:2px;
+}
 
-        .hero-text h1 {
-            font-size: 3.5rem; color: var(--wb-white);
-            line-height: 1.1; margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        .hero-text h1 em {
-            color: var(--wb-accent); font-style: normal; position: relative;
-        }
-        .hero-text h1 em::after {
-            content: ''; position: absolute; bottom: 5px; left: 0;
-            width: 100%; height: 8px; background: rgba(230, 168, 23, 0.3); z-index: -1;
-        }
-        .hero-text p {
-            font-size: 1.2rem; color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem; max-width: 500px;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.progress-section{
+margin-top:30px;
+}
 
-        .hero-buttons {
-            display: flex; gap: 1rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
+.progress-bar{
+height:6px;
+background:rgba(255,255,255,0.1);
+border-radius:10px;
+overflow:hidden;
+}
 
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 1rem 2rem; border-radius: 50px;
-            text-decoration: none; font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            transition: var(--transition); border: none;
-            cursor: pointer; font-size: 0.95rem;
-        }
-        .btn-primary {
-            background: var(--wb-accent); color: var(--wb-white);
-            box-shadow: 0 4px 15px rgba(230, 168, 23, 0.3);
-        }
-        .btn-primary:hover {
-            background: var(--wb-accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(230, 168, 23, 0.4);
-        }
-        .btn-secondary {
-            background: transparent; color: var(--wb-white);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--wb-white);
-        }
+.progress-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#f093fb,#f5576c);
+transition:1s;
+}
 
-        .hero-image { position: relative; animation: fadeInRight 1s ease 0.4s both; }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .hero-image-wrapper {
-            position: relative; border-radius: 20px;
-            overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-        .hero-image img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
-        .hero-image:hover img { transform: scale(1.05); }
+.message{
+margin-top:30px;
+font-style:italic;
+opacity:0.8;
+}
 
-        .hero-float-card {
-            position: absolute; background: var(--wb-white);
-            padding: 1rem 1.5rem; border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: flex; align-items: center; gap: 0.75rem;
-            animation: floatCard 3s ease-in-out infinite;
-        }
-        .hero-float-card.card-1 { top: 10%; right: -20px; }
-        .hero-float-card.card-2 { bottom: 15%; left: -30px; animation-delay: 1.5s; }
-        .hero-float-card i {
-            width: 40px; height: 40px; background: var(--wb-green);
-            color: var(--wb-white); border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
-        }
-        .hero-float-card div { font-size: 0.9rem; }
-        .hero-float-card strong { display: block; color: var(--wb-green-dark); font-family: 'Montserrat', sans-serif; }
-        .hero-float-card span { color: var(--wb-gray); font-size: 0.8rem; }
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+.hearts-container{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
 
-        /* Brands Section */
-        .brands {
-            background: var(--wb-white); padding: 3rem 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .brands-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .brands p { color: var(--wb-gray); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
-        .brands-grid { display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; }
-        .brand-item {
-            font-family: 'Montserrat', sans-serif; font-weight: 700;
-            font-size: 1.5rem; color: var(--wb-gray);
-            opacity: 0.5; transition: var(--transition);
-        }
-        .brand-item:hover { opacity: 1; color: var(--wb-green); }
+.heart{
+position:absolute;
+animation:float 15s linear infinite;
+opacity:0.3;
+}
 
-        /* Services Section */
-        .services { padding: 6rem 2rem; background: var(--wb-light); }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
-        .section-tag {
-            display: inline-block; background: rgba(61, 92, 0, 0.1);
-            color: var(--wb-green); padding: 0.4rem 1rem;
-            border-radius: 50px; font-size: 0.85rem;
-            font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1px; margin-bottom: 1rem;
-        }
-        .section-header h2 { font-size: 2.5rem; color: var(--wb-green-dark); margin-bottom: 1rem; }
-        .section-header p { color: var(--wb-gray); font-size: 1.1rem; }
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
+}
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .service-card {
-            background: var(--wb-white); border-radius: 20px;
-            padding: 2.5rem; transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05); position: relative; overflow: hidden;
-        }
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 100%; height: 4px; background: var(--wb-accent);
-            transform: scaleX(0); transition: var(--transition);
-        }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .service-icon {
-            width: 70px; height: 70px; background: rgba(61, 92, 0, 0.1);
-            border-radius: 16px; display: flex;
-            align-items: center; justify-content: center;
-            margin-bottom: 1.5rem; transition: var(--transition);
-        }
-        .service-card:hover .service-icon { background: var(--wb-green); transform: rotateY(360deg); }
-        .service-icon i { font-size: 1.8rem; color: var(--wb-green); transition: var(--transition); }
-        .service-card:hover .service-icon i { color: var(--wb-white); }
-        .service-card h3 { font-size: 1.3rem; color: var(--wb-green-dark); margin-bottom: 0.75rem; }
-        .service-card p { color: var(--wb-gray); line-height: 1.8; margin-bottom: 1.5rem; }
-        .service-link {
-            color: var(--wb-accent); text-decoration: none; font-weight: 600;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: var(--transition);
-        }
-        .service-link:hover { gap: 0.75rem; color: var(--wb-accent-hover); }
-
-        /* About Section */
-        .about { padding: 6rem 2rem; background: var(--wb-white); position: relative; overflow: hidden; }
-        .about::before {
-            content: ''; position: absolute; top: -50%; right: -10%;
-            width: 600px; height: 600px; background: rgba(61, 92, 0, 0.03);
-            border-radius: 50%;
-        }
-        .about-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 5rem; align-items: center;
-            position: relative; z-index: 1;
-        }
-        .about-images { position: relative; }
-        .about-img-main { border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
-        .about-img-main img { width: 100%; height: auto; display: block; }
-        .about-experience {
-            position: absolute; bottom: -30px; right: -30px;
-            background: var(--wb-accent); color: var(--wb-white);
-            padding: 2rem; border-radius: 20px; text-align: center;
-            box-shadow: 0 15px 40px rgba(230, 168, 23, 0.3);
-        }
-        .about-experience .years { font-size: 3rem; font-weight: 800; font-family: 'Montserrat', sans-serif; display: block; line-height: 1; }
-        .about-experience .text { font-size: 0.9rem; opacity: 0.9; }
-        .about-text h2 { font-size: 2.5rem; color: var(--wb-green-dark); margin-bottom: 1.5rem; }
-        .about-text h2 em { color: var(--wb-green); font-style: normal; }
-        .about-text p { color: var(--wb-gray); margin-bottom: 1.5rem; line-height: 1.8; }
-        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-        .about-feature { display: flex; align-items: flex-start; gap: 0.75rem; }
-        .about-feature i { color: var(--wb-accent); font-size: 1.2rem; margin-top: 0.2rem; }
-        .about-feature span { color: var(--wb-dark); font-weight: 600; }
-
-        /* Stats Section */
-        .stats {
-            background: var(--wb-green); padding: 4rem 2rem;
-            position: relative; overflow: hidden;
-        }
-        .stats::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
-            background-size: 60px 60px;
-        }
-        .stats-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 2rem; position: relative; z-index: 1;
-        }
-        .stat-item { text-align: center; color: var(--wb-white); }
-        .stat-icon {
-            width: 60px; height: 60px; background: rgba(255,255,255,0.1);
-            border-radius: 16px; display: flex;
-            align-items: center; justify-content: center;
-            margin: 0 auto 1rem; font-size: 1.5rem;
-        }
-        .stat-number { font-size: 2.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; display: block; margin-bottom: 0.5rem; }
-        .stat-label { opacity: 0.8; font-size: 0.95rem; }
-
-        /* Gallery Section */
-        .gallery { padding: 6rem 2rem; background: var(--wb-light); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .gallery-item {
-            position: relative; border-radius: 16px;
-            overflow: hidden; aspect-ratio: 4/3; cursor: pointer;
-        }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(61, 92, 0, 0.9), transparent);
-            display: flex; flex-direction: column;
-            justify-content: flex-end; padding: 2rem;
-            opacity: 0; transition: var(--transition);
-        }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        .gallery-overlay h4 { color: var(--wb-white); font-size: 1.2rem; margin-bottom: 0.5rem; transform: translateY(20px); transition: var(--transition); }
-        .gallery-item:hover .gallery-overlay h4 { transform: translateY(0); }
-        .gallery-overlay p { color: rgba(255,255,255,0.8); font-size: 0.9rem; transform: translateY(20px); transition: var(--transition) 0.1s; }
-        .gallery-item:hover .gallery-overlay p { transform: translateY(0); }
-
-        /* Contact Section */
-        .contact { padding: 6rem 2rem; background: var(--wb-white); }
-        .contact-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-        }
-        .contact-info h2 { font-size: 2.5rem; color: var(--wb-green-dark); margin-bottom: 1rem; }
-        .contact-info > p { color: var(--wb-gray); margin-bottom: 2.5rem; line-height: 1.8; }
-        .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; }
-        .contact-method {
-            display: flex; align-items: center; gap: 1rem;
-            padding: 1.5rem; background: var(--wb-light);
-            border-radius: 16px; transition: var(--transition);
-        }
-        .contact-method:hover { background: var(--wb-green); transform: translateX(10px); }
-        .contact-method:hover .contact-icon { background: var(--wb-white); color: var(--wb-green); }
-        .contact-method:hover .contact-details h4,
-        .contact-method:hover .contact-details p { color: var(--wb-white); }
-        .contact-icon {
-            width: 50px; height: 50px; background: var(--wb-green);
-            color: var(--wb-white); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; transition: var(--transition);
-        }
-        .contact-details h4 { color: var(--wb-green-dark); margin-bottom: 0.25rem; transition: var(--transition); }
-        .contact-details p { color: var(--wb-gray); font-size: 0.95rem; transition: var(--transition); }
-
-        .contact-form-wrapper { background: var(--wb-light); padding: 3rem; border-radius: 24px; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--wb-green-dark); font-weight: 600; font-size: 0.9rem; }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%; padding: 1rem 1.25rem; background: var(--wb-white);
-            border: 2px solid transparent; border-radius: 12px;
-            font-family: 'Open Sans', sans-serif; font-size: 1rem;
-            color: var(--wb-dark); transition: var(--transition);
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none; border-color: var(--wb-accent);
-            box-shadow: 0 0 0 4px rgba(230, 168, 23, 0.1);
-        }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-        /* Footer */
-        footer { background: var(--wb-green-dark); color: var(--wb-white); padding: 4rem 2rem 1.5rem; }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem; margin-bottom: 3rem;
-        }
-        .footer-brand p { opacity: 0.8; margin: 1.5rem 0; line-height: 1.8; }
-        .footer-social { display: flex; gap: 1rem; }
-        .footer-social a {
-            width: 40px; height: 40px; background: rgba(255,255,255,0.1);
-            border-radius: 10px; display: flex;
-            align-items: center; justify-content: center;
-            color: var(--wb-white); text-decoration: none;
-            transition: var(--transition);
-        }
-        .footer-social a:hover { background: var(--wb-accent); transform: translateY(-3px); }
-        .footer-links h4 { color: var(--wb-accent); margin-bottom: 1.5rem; font-size: 1.1rem; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 0.75rem; }
-        .footer-links a {
-            color: rgba(255,255,255,0.8); text-decoration: none;
-            transition: var(--transition); display: flex;
-            align-items: center; gap: 0.5rem;
-        }
-        .footer-links a:hover { color: var(--wb-accent); padding-left: 5px; }
-        .footer-bottom {
-            max-width: 1200px; margin: 0 auto; padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            display: flex; justify-content: space-between;
-            align-items: center; flex-wrap: wrap; gap: 1rem;
-        }
-        .footer-bottom p { opacity: 0.6; font-size: 0.9rem; }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 60px; height: 60px; background: #25d366;
-            color: var(--wb-white); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            cursor: pointer; z-index: 999; transition: var(--transition);
-            text-decoration: none; animation: pulse 2s infinite;
-        }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero-content, .about-content, .contact-content { grid-template-columns: 1fr; gap: 3rem; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 2rem; }
-            .about-experience { right: 10px; bottom: -10px; padding: 1rem; }
-            .about-experience .years { font-size: 2rem; }
-            .hero-float-card { display: none; }
-        }
-        @media (max-width: 480px) {
-            .hero-text h1 { font-size: 2rem; }
-            .hero-buttons { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .about-features { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .contact-form-wrapper { padding: 1.5rem; }
-        }
-
-        /* Scroll Animations */
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-        .scroll-reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-        .scroll-reveal-left.active { opacity: 1; transform: translateX(0); }
-        .scroll-reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-        .scroll-reveal-right.active { opacity: 1; transform: translateX(0); }
-    </style>
+@media(max-width:600px){
+.counter-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
 </head>
+
 <body>
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-logo"></div>
-            <p>WB SEGURANÇA</p>
-        </div>
-    </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="logo-text">WB SEGURANÇA<span>SEGURANÇA ELETRÔNICA</span></div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#contato" class="nav-cta">Contato</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
-        </div>
-    </nav>
+<div class="hearts-container" id="heartsContainer"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge"><i class="fas fa-star"></i>Revenda Autorizada Intelbras & Hikvision</div>
-                <h1>Proteção <em>Profissional</em> para sua Família e Empresa</h1>
-                <p>Soluções completas em segurança eletrônica em Brasília. CFTV, alarmes, cerca elétrica e muito mais com tecnologia de ponta e suporte especializado.</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/5561993191969" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i>Solicitar Orçamento</a>
-                    <a href="#servicos" class="btn btn-secondary"><i class="fas fa-arrow-down"></i>Conhecer Serviços</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="sua-foto-hero.jpg" alt="Instalação WB Segurança">
-                </div>
-                <div class="hero-float-card card-1"><i class="fas fa-check-circle"></i><div><strong>Instalação Profissional</strong><span>Equipe especializada</span></div></div>
-                <div class="hero-float-card card-2"><i class="fas fa-headset"></i><div><strong>Suporte 24/7</strong><span>Sempre disponível</span></div></div>
-            </div>
-        </div>
-    </section>
+<div class="container">
+<div class="card">
 
-    <!-- Brands Section -->
-    <section class="brands">
-        <div class="brands-content">
-            <p>Trabalhamos com as melhores marcas</p>
-            <div class="brands-grid">
-                <div class="brand-item">INTELBRAS</div>
-                <div class="brand-item">HIKVISION</div>
-                <div class="brand-item">JFL</div>
-                <div class="brand-item">PPA</div>
-            </div>
-        </div>
-    </section>
+<h1 class="title">Nossa História 💕</h1>
+<p class="subtitle">Contagem para o nosso 2 de Março</p>
 
-    <!-- Services Section -->
-    <section class="services" id="servicos">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">Nossos Serviços</span>
-                <h2>Soluções Completas em Segurança</h2>
-                <p>Oferecemos proteção completa para residências, empresas e condomínios em todo o Distrito Federal.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-video"></i></div>
-                    <h3>CFTV - Câmeras de Vigilância</h3>
-                    <p>Instalação de câmeras de alta definição com acesso remoto via celular. Monitoramento 24 horas com gravação em nuvem ou DVR.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-bell"></i></div>
-                    <h3>Alarmes Monitorados</h3>
-                    <p>Sistemas de alarme com sensores de presença, abertura e quebra de vidro. Monitoramento 24h por central de segurança.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Cerca Elétrica</h3>
-                    <p>Instalação de cercas elétricas inteligentes com alarme integrado. Alta segurança perimetral para sua propriedade.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-door-open"></i></div>
-                    <h3>Controle de Acesso</h3>
-                    <p>Catracas, torniquetes, leitores biométricos e cartões de proximidade. Controle quem entra e sai do seu estabelecimento.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-phone-alt"></i></div>
-                    <h3>Interfonia e Vídeo Porteiro</h3>
-                    <p>Sistemas de comunicação com visualização em alta qualidade. Atendimento remoto via celular.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card scroll-reveal">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Portaria Virtual</h3>
-                    <p>Substitua a portaria tradicional por monitoramento remoto. Redução de custos com a mesma segurança.</p>
-                    <a href="#contato" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="counter-grid">
+<div class="time-box">
+<div class="number" id="days">00</div>
+<div class="label">DIAS</div>
+</div>
+<div class="time-box">
+<div class="number" id="hours">00</div>
+<div class="label">HORAS</div>
+</div>
+<div class="time-box">
+<div class="number" id="minutes">00</div>
+<div class="label">MINUTOS</div>
+</div>
+<div class="time-box">
+<div class="number" id="seconds">00</div>
+<div class="label">SEGUNDOS</div>
+</div>
+</div>
 
-    <!-- About Section -->
-    <section class="about" id="sobre">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-images scroll-reveal-left">
-                    <div class="about-img-main">
-                        <img src="sua-foto-sobre.jpg" alt="Equipe WB Segurança">
-                    </div>
-                    <div class="about-experience">
-                        <span class="years">+10</span>
-                        <span class="text">Anos de<br>Experiência</span>
-                    </div>
-                </div>
-                <div class="about-text scroll-reveal-right">
-                    <span class="section-tag">Sobre Nós</span>
-                    <h2>Quem <em>Somos</em></h2>
-                    <p>A WB Segurança Eletrônica é uma empresa especializada em soluções de segurança para residências e empresas em Brasília. Com mais de 10 anos de experiência, oferecemos tecnologia de ponta e atendimento personalizado.</p>
-                    <p>Somos revenda autorizada das melhores marcas do mercado, como Intelbras e Hikvision. Nossa equipe técnica é altamente qualificada e constantemente treinada nas últimas tecnologias.</p>
-                    <div class="about-features">
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Equipe Especializada</span></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Atendimento 24h</span></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Garantia Total</span></div>
-                        <div class="about-feature"><i class="fas fa-check-circle"></i><span>Pós-venda Diferenciado</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="progress-section">
+<p style="margin-bottom:10px;font-size:0.9rem;opacity:0.7;">Progresso até o dia especial</p>
+<div class="progress-bar">
+<div class="progress-fill" id="progressBar"></div>
+</div>
+</div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item scroll-reveal">
-                <div class="stat-icon"><i class="fas fa-smile"></i></div>
-                <span class="stat-number">500+</span>
-                <span class="stat-label">Clientes Satisfeitos</span>
-            </div>
-            <div class="stat-item scroll-reveal">
-                <div class="stat-icon"><i class="fas fa-tools"></i></div>
-                <span class="stat-number">1000+</span>
-                <span class="stat-label">Instalações Realizadas</span>
-            </div>
-            <div class="stat-item scroll-reveal">
-                <div class="stat-icon"><i class="fas fa-award"></i></div>
-                <span class="stat-number">10+</span>
-                <span class="stat-label">Anos de Experiência</span>
-            </div>
-            <div class="stat-item scroll-reveal">
-                <div class="stat-icon"><i class="fas fa-headset"></i></div>
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">Suporte Técnico</span>
-            </div>
-        </div>
-    </section>
+<div class="message" id="finalMessage">
+"Cada segundo nos aproxima do nosso dia especial 💖"
+</div>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="galeria">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">Nossos Trabalhos</span>
-                <h2>Galeria de Instalações</h2>
-                <p>Confira alguns dos nossos projetos realizados em Brasília e região.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-1.jpg" alt="Instalação CFTV">
-                    <div class="gallery-overlay"><h4>CFTV Residencial</h4><p>Asa Sul - Brasília</p></div>
-                </div>
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-2.jpg" alt="Cerca Elétrica">
-                    <div class="gallery-overlay"><h4>Cerca Elétrica Industrial</h4><p>SIA - Brasília</p></div>
-                </div>
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-3.jpg" alt="Alarme">
-                    <div class="gallery-overlay"><h4>Sistema de Alarme</h4><p>Lago Sul - Brasília</p></div>
-                </div>
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-4.jpg" alt="Controle de Acesso">
-                    <div class="gallery-overlay"><h4>Controle de Acesso</h4><p>Águas Claras - Brasília</p></div>
-                </div>
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-5.jpg" alt="Interfonia">
-                    <div class="gallery-overlay"><h4>Vídeo Porteiro</h4><p>Taguatinga - Brasília</p></div>
-                </div>
-                <div class="gallery-item scroll-reveal">
-                    <img src="trabalho-6.jpg" alt="Portaria Virtual">
-                    <div class="gallery-overlay"><h4>Portaria Virtual</h4><p>Condomínio - Brasília</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contato">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info scroll-reveal-left">
-                    <span class="section-tag">Entre em Contato</span>
-                    <h2>Vamos conversar?</h2>
-                    <p>Estamos prontos para ajudar você a proteger o que mais importa. Entre em contato pelos canais abaixo ou preencha o formulário.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div class="contact-details"><h4>WhatsApp</h4><p>+55 61 99319-1969</p></div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div class="contact-details"><h4>Telefone</h4><p>+55 61 99319-1969</p></div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-details"><h4>E-mail</h4><p>contato@wbseguranca.com.br</p></div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-details"><h4>Localização</h4><p>Brasília - DF</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper scroll-reveal-right">
-                    <form action="https://formsubmit.co/contato@wbseguranca.com.br" method="POST">
-                        <input type="hidden" name="_subject" value="Novo contato do site WB Segurança">
-                        <input type="hidden" name="_next" value="https://wb-seguranca-eletronica.vercel.app/obrigado.html">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Nome completo</label>
-                                <input type="text" id="name" name="name" required placeholder="Seu nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefone</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="(61) 99999-9999">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="seu@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Serviço de interesse</label>
-                            <select id="service" name="service" required>
-                                <option value="">Selecione um serviço</option>
-                                <option value="cftv">CFTV - Câmeras</option>
-                                <option value="alarme">Alarme Monitorado</option>
-                                <option value="cerca">Cerca Elétrica</option>
-                                <option value="acesso">Controle de Acesso</option>
-                                <option value="interfonia">Interfonia</option>
-                                <option value="portaria">Portaria Virtual</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" placeholder="Descreva sua necessidade..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i>Enviar Mensagem</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+// Corações
+function createHearts(){
+const container=document.getElementById('heartsContainer');
+const hearts=['💕','💖','💗','💓','💘'];
+for(let i=0;i<25;i++){
+const heart=document.createElement('div');
+heart.className='heart';
+heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+heart.style.left=Math.random()*100+'%';
+heart.style.fontSize=(15+Math.random()*25)+'px';
+heart.style.animationDuration=(10+Math.random()*15)+'s';
+container.appendChild(heart);
+}
+}
+createHearts();
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo" style="color: white;">
-                    <div class="logo-icon" style="background: var(--wb-accent);"><i class="fas fa-shield-alt"></i></div>
-                    <div class="logo-text" style="color: white;">WB SEGURANÇA<span style="color: rgba(255,255,255,0.7);">SEGURANÇA ELETRÔNICA</span></div>
-                </div>
-                <p>Protegendo o que você ama com tecnologia e profissionalismo. Mais de 10 anos de experiência em segurança eletrônica em Brasília.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4>Serviços</h4>
-                <ul>
-                    <li><a href="#servicos"><i class="fas fa-chevron-right"></i> CFTV</a></li>
-                    <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Alarmes</a></li>
-                    <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Cerca Elétrica</a></li>
-                    <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Controle de Acesso</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
-                    <li><a href="#galeria"><i class="fas fa-chevron-right"></i> Galeria</a></li>
-                    <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Contato</h4>
-                <ul>
-                    <li><a href="tel:+5561993191969"><i class="fas fa-phone"></i> (61) 99319-1969</a></li>
-                    <li><a href="mailto:contato@wbseguranca.com.br"><i class="fas fa-envelope"></i> E-mail</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Brasília - DF</a></li>
-                    <li><a href="#"><i class="fas fa-clock"></i> 24h / 7 dias</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 WB Segurança Eletrônica. Todos os direitos reservados.</p>
-            <p>Desenvolvido com <i class="fas fa-heart" style="color: var(--wb-accent);"></i> para proteger você</p>
-        </div>
-    </footer>
+// CONTADOR INTELIGENTE
+function updateCountdown(){
+const now=new Date();
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5561993191969" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp"><i class="fab fa-whatsapp"></i></a>
+// Próximo 2 de março
+let targetDate=new Date(now.getFullYear(),2,2,0,0,0);
 
-    <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 800);
-        });
+if(now>targetDate){
+targetDate=new Date(now.getFullYear()+1,2,2,0,0,0);
+}
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
+let diff=targetDate-now;
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'white';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.padding = '2rem';
-                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                navLinks.style.gap = '1.5rem';
-            }
-        }
+if(diff<=0){
+document.getElementById("finalMessage").innerHTML="🎉 Feliz nosso dia! Eu te amo! 💖";
+return;
+}
 
-        // Scroll Reveal Animation
-        const scrollReveal = () => {
-            const elements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) element.classList.add('active');
-            });
-        };
-        window.addEventListener('scroll', scrollReveal);
-        window.addEventListener('load', scrollReveal);
+const days=Math.floor(diff/(1000*60*60*24));
+diff%=1000*60*60*24;
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
+const hours=Math.floor(diff/(1000*60*60));
+diff%=1000*60*60;
 
-        // Phone Mask
-        const phoneInput = document.getElementById('phone');
-        if (phoneInput) {
-            phoneInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\\D/g, '');
-                if (value.length <= 11) {
-                    if (value.length > 2) value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
-                    if (value.length > 10) value = value.substring(0, 10) + '-' + value.substring(10);
-                    e.target.value = value;
-                }
-            });
-        }
+const minutes=Math.floor(diff/(1000*60));
+diff%=1000*60;
 
-        // Form Submit Handler
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                const btn = this.querySelector('button[type="submit"]');
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                btn.disabled = true;
-            });
-        }
+const seconds=Math.floor(diff/1000);
 
-        // Stats Counter Animation
-        const animateStats = () => {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.textContent);
-                if (!isNaN(target) && target > 0) {
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = stat.textContent.includes('+') ? target + '+' : target;
-                            clearInterval(timer);
-                        } else stat.textContent = Math.floor(current);
-                    }, 30);
-                }
-            });
-        };
+document.getElementById('days').textContent=String(days).padStart(2,'0');
+document.getElementById('hours').textContent=String(hours).padStart(2,'0');
+document.getElementById('minutes').textContent=String(minutes).padStart(2,'0');
+document.getElementById('seconds').textContent=String(seconds).padStart(2,'0');
 
-        // Trigger stats animation when section is visible
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateStats();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            observer.observe(statsSection);
-        }
-    </script>
+// Barra progresso
+const startDate=new Date(targetDate.getFullYear()-1,2,2);
+const total=targetDate-startDate;
+const elapsed=now-startDate;
+
+let progress=(elapsed/total)*100;
+progress=Math.max(0,Math.min(progress,100));
+
+document.getElementById('progressBar').style.width=progress+"%";
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+</script>
+
 </body>
-</html>'''
+</html>
