@@ -19,12 +19,10 @@ align-items:center;
 justify-content:center;
 color:#fff;
 overflow:hidden;
+transition:2s;
 }
 
-.container{
-text-align:center;
-z-index:10;
-}
+.container{text-align:center;z-index:10;}
 
 .card{
 background:rgba(255,255,255,0.05);
@@ -35,6 +33,7 @@ padding:40px;
 width:95%;
 max-width:700px;
 box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transition:1.5s;
 }
 
 .title{
@@ -44,11 +43,6 @@ margin-bottom:10px;
 background:linear-gradient(135deg,#f093fb,#f5576c);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-}
-
-.subtitle{
-opacity:0.7;
-margin-bottom:30px;
 }
 
 .counter-grid{
@@ -63,40 +57,8 @@ padding:20px;
 border-radius:20px;
 }
 
-.number{
-font-size:2.5rem;
-font-weight:bold;
-}
-
-.label{
-font-size:0.8rem;
-opacity:0.7;
-letter-spacing:2px;
-}
-
-.progress-section{
-margin-top:30px;
-}
-
-.progress-bar{
-height:6px;
-background:rgba(255,255,255,0.1);
-border-radius:10px;
-overflow:hidden;
-}
-
-.progress-fill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#f093fb,#f5576c);
-transition:1s;
-}
-
-.message{
-margin-top:30px;
-font-style:italic;
-opacity:0.8;
-}
+.number{font-size:2.5rem;font-weight:bold;}
+.label{font-size:0.8rem;opacity:0.7;letter-spacing:2px;}
 
 .hearts-container{
 position:fixed;
@@ -119,8 +81,62 @@ opacity:0.3;
 100%{transform:translateY(-100vh);}
 }
 
+/* ===== TEMA FINAL ===== */
+
+body.final-day{
+background:linear-gradient(135deg,#000000,#1a0033,#330066);
+overflow:auto;
+}
+
+body.final-day .card{
+animation:collapse 1.5s forwards;
+}
+
+@keyframes collapse{
+0%{transform:scale(1) rotate(0deg); opacity:1;}
+100%{transform:scale(0.3) rotate(15deg); opacity:0;}
+}
+
+.final-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:radial-gradient(circle at center,#1a0033,#000);
+color:white;
+padding:40px;
+text-align:center;
+opacity:0;
+animation:fadeInFinal 3s forwards;
+animation-delay:1.5s;
+z-index:9999;
+}
+
+@keyframes fadeInFinal{
+to{opacity:1;}
+}
+
+.final-text{
+max-width:800px;
+font-family:'Playfair Display',serif;
+font-size:1.2rem;
+line-height:1.8;
+white-space:pre-line;
+animation:softAppear 4s ease forwards;
+opacity:0;
+}
+
+@keyframes softAppear{
+to{opacity:1;}
+}
+
 @media(max-width:600px){
 .counter-grid{grid-template-columns:repeat(2,1fr);}
+.final-text{font-size:1rem;}
 }
 </style>
 </head>
@@ -133,43 +149,13 @@ opacity:0.3;
 <div class="card">
 
 <h1 class="title">Nossa História 💕</h1>
-<p class="subtitle">Contagem para o nosso 2 de Março</p>
-
-<div class="counter-grid">
-<div class="time-box">
-<div class="number" id="days">00</div>
-<div class="label">DIAS</div>
-</div>
-<div class="time-box">
-<div class="number" id="hours">00</div>
-<div class="label">HORAS</div>
-</div>
-<div class="time-box">
-<div class="number" id="minutes">00</div>
-<div class="label">MINUTOS</div>
-</div>
-<div class="time-box">
-<div class="number" id="seconds">00</div>
-<div class="label">SEGUNDOS</div>
-</div>
-</div>
-
-<div class="progress-section">
-<p style="margin-bottom:10px;font-size:0.9rem;opacity:0.7;">Progresso até o dia especial</p>
-<div class="progress-bar">
-<div class="progress-fill" id="progressBar"></div>
-</div>
-</div>
-
-<div class="message" id="finalMessage">
-"Cada segundo nos aproxima do nosso dia especial 💖"
-</div>
+<p>Modo teste ativado para hoje</p>
 
 </div>
 </div>
 
 <script>
-// Corações
+// CORAÇÕES
 function createHearts(){
 const container=document.getElementById('heartsContainer');
 const hearts=['💕','💖','💗','💓','💘'];
@@ -185,53 +171,55 @@ container.appendChild(heart);
 }
 createHearts();
 
-// CONTADOR INTELIGENTE
-function updateCountdown(){
-const now=new Date();
+// ATIVA IMEDIATAMENTE (MODO TESTE)
+function activateFinal(){
 
-// Próximo 2 de março
-let targetDate=new Date(now.getFullYear(),2,2,0,0,0);
+document.getElementById("heartsContainer").style.display="none";
+document.body.classList.add("final-day");
 
-if(now>targetDate){
-targetDate=new Date(now.getFullYear()+1,2,2,0,0,0);
+const finalScreen=document.createElement("div");
+finalScreen.className="final-screen";
+
+const text=document.createElement("div");
+text.className="final-text";
+
+text.innerText=`Finalmente um ano…
+(sorri de leve)
+
+Eu fico até sem saber por onde começar. Parece que foi ontem, mas ao mesmo tempo aconteceu tanta coisa nesse tempo…
+
+A gente viveu altos e baixos. Teve dia que foi leve, teve dia que foi pesado. Teve momento que quase desandou. Teve erro meu, teve orgulho, teve silêncio… mas mesmo assim, a gente ficou.
+
+E isso diz muito.
+
+Talvez eu não saiba explicar tudo que eu aprendi nesse tempo. Mas eu sei de uma coisa: depois desse um ano, eu não sou o mesmo cara de antes. Porque amar você me mudou.
+
+E hoje eu não quero falar só do passado.
+
+Eu quero falar de escolha.
+
+E eu escolho você.
+
+Mesmo com defeitos. Mesmo com dificuldades. Mesmo quando é difícil.
+
+Porque não é só um ano.
+
+É a prova de que, no meio do caos, eu encontrei alguém que vale a pena lutar.
+
+Eu te amo.
+
+E sobre o futuro… eu tenho tantas coisas que eu queria dizer, tantos planos que eu imagino com você… mas se eu começar a falar agora eu vou acabar chorando.
+
+Então eu só vou terminar assim:
+
+Se for pra continuar errando… que seja do seu lado.`;
+
+finalScreen.appendChild(text);
+document.body.appendChild(finalScreen);
 }
 
-let diff=targetDate-now;
-
-if(diff<=0){
-document.getElementById("finalMessage").innerHTML="🎉 Feliz nosso dia! Eu te amo! 💖";
-return;
-}
-
-const days=Math.floor(diff/(1000*60*60*24));
-diff%=1000*60*60*24;
-
-const hours=Math.floor(diff/(1000*60*60));
-diff%=1000*60*60;
-
-const minutes=Math.floor(diff/(1000*60));
-diff%=1000*60;
-
-const seconds=Math.floor(diff/1000);
-
-document.getElementById('days').textContent=String(days).padStart(2,'0');
-document.getElementById('hours').textContent=String(hours).padStart(2,'0');
-document.getElementById('minutes').textContent=String(minutes).padStart(2,'0');
-document.getElementById('seconds').textContent=String(seconds).padStart(2,'0');
-
-// Barra progresso
-const startDate=new Date(targetDate.getFullYear()-1,2,2);
-const total=targetDate-startDate;
-const elapsed=now-startDate;
-
-let progress=(elapsed/total)*100;
-progress=Math.max(0,Math.min(progress,100));
-
-document.getElementById('progressBar').style.width=progress+"%";
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
+// ativa após 2 segundos só pra você ver a animação
+setTimeout(activateFinal,2000);
 
 </script>
 
